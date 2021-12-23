@@ -3,7 +3,7 @@ import pandas as pd
 import psycopg2
 
 # from src.DataSource.GetHistData = Get Daily Historical Data
-from src.DataSource.GetHistData import initial_daily_data
+from src.DataSource.GetHistData import initial_weekly_data
 # from src.Calculation.ComputeMACD
 from src.Calculation.ComputeMACD import computeMACD
 # from src.Calculation.STC
@@ -11,7 +11,7 @@ from src.Calculation.ComputeSTC import compute_stc
 
 
 ticker = "9988.hk"
-data = initial_daily_data(ticker)
+data = initial_weekly_data(ticker)
 print(data)
 
 # DATA CLEANSING
