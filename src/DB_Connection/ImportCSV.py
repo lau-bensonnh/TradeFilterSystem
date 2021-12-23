@@ -21,7 +21,9 @@ data.to_csv(buf, header=False, index=False)
 buf.seek(0)
 print(buf)
 
-conn = psycopg2.connect("host=localhost dbname=tfs_dev user=tfs_dev password=ehYY76wd")
-cur = conn.cursor()
-cur.copy_from(buf, 'hist_data', columns=('market_date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Ticker'), sep=',')
-cur.execute('commit')
+
+
+# conn = psycopg2.connect("host=localhost dbname=tfs_dev user=tfs_dev password=ehYY76wd")
+# cur = conn.cursor()
+# cur.copy_from(buf, 'hist_data', columns=('market_date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Ticker'), sep=',')
+# cur.execute('commit')
