@@ -8,7 +8,7 @@ from src.DataSource.GetHistData import initial_daily_data
 from src.Calculation.ComputeMACD import computeMACD
 # from src.Calculation.STC
 from src.Calculation.ComputeSTC import compute_stc
-
+from src.Calculation.LocalLowAndLocalHigh import holyGrail
 
 ticker = "9988.hk"
 data = initial_daily_data(ticker)
@@ -30,6 +30,8 @@ print(data)
 data = compute_stc(data, 16, 8, 8)
 print(data)
 
-
+# Run Holy Grail
+data = holyGrail(data, 6)
+print(data)
 
 
