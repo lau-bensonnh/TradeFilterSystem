@@ -17,39 +17,40 @@ def compute_macd(df, n_fast, n_slow, n_smooth):
 
 
 def check_macd(df):
-    if df['macd', -1] < 0:
+
+    if df['macd'].iloc[-1] < 0:
         macd_status = 'Downtrend'
-        if df['macd', -2] < df['macd', -1]:
+        if df['macd'].iloc[-2] < df['macd'].iloc[-1]:
             macd_status = macd_status + ' Momentum reducing'
-            if abs((df['macd', -1] - df['macd', -2]) / df['macd', -2]) < 0.05:
+            if abs((df['macd'].iloc[-1] - df['macd'].iloc[-2]) / df['macd'].iloc[-2]) < 0.05:
                 macd_status = macd_status + ' & Flattening'
-            if df['macd_hist', -2] < df['macd_hist', -1]:
+            if df['macd_hist'].iloc[-2] < df['macd_hist'].iloc[-1]:
                 macd_status = macd_status + ' with deceleration'
             else:
                 macd_status = macd_status + ' with acceleration'
         else:
             macd_status = macd_status + ' Momentum Increasing'
-            if abs((df['macd', -1] - df['macd', -2]) / df['macd', -2]) < 0.05:
+            if abs((df['macd'].iloc[-1] - df['macd'].iloc[-2]) / df['macd'].iloc[-2]) < 0.05:
                 macd_status = macd_status + ' & Flattening'
-            if df['macd_hist', -2] < df['macd_hist', -1]:
+            if df['macd_hist'].iloc[-2] < df['macd_hist'].iloc[-1]:
                 macd_status = macd_status + ' with deceleration'
             else:
                 macd_status = macd_status + ' with acceleration'
     else:
         macd_status = 'Uptrend'
-        if df['macd', -2] > df['macd', -1]:
+        if df['macd'].iloc[-2] > df['macd'].iloc[-1]:
             macd_status = macd_status + ' Momentum Reducing'
-            if abs((df['macd', -2] - df['macd', -1]) / df['macd', -2]) < 0.05:
+            if abs((df['macd'].iloc[-2] - df['macd'].iloc[-1]) / df['macd'].iloc[-2]) < 0.05:
                 macd_status = macd_status + ' & Flattening'
-            if df['macd_hist', -2] > df['macd_hist', -1]:
+            if df['macd_hist'].iloc[-2] > df['macd_hist'].iloc[-1]:
                 macd_status = macd_status + ' with deceleration'
             else:
                 macd_status = macd_status + ' with acceleration'
         else:
             macd_status = macd_status + ' Momentum increasing'
-            if abs((df['macd', -2] - df['macd', -1]) / df['macd', -2]) < 0.05:
+            if abs((df['macd'].iloc[-2] - df['macd'].iloc[-1]) / df['macd'].iloc[-2]) < 0.05:
                 macd_status = macd_status + ' & Flattening'
-            if df['macd_hist', -2] > df['macd_hist', -1]:
+            if df['macd_hist'].iloc[-2] > df['macd_hist'].iloc[-1]:
                 macd_status = macd_status + ' with deceleration'
             else:
                 macd_status = macd_status + ' with acceleration'

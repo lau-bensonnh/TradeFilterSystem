@@ -2,6 +2,7 @@ import psycopg2
 
 
 conn = psycopg2.connect("host=localhost dbname=tfs_dev user=tfs_dev password=ehYY76wd")
+
 cur = conn.cursor()
 cur.execute("""
     CREATE TABLE IF NOT EXISTS ticker(

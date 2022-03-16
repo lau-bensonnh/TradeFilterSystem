@@ -10,6 +10,8 @@ from src.Calculation.ComputeMACD import check_macd
 # from src.Calculation.STC
 from src.Calculation.ComputeSTC import compute_stc
 from src.Calculation.ComputeSTC import check_stc
+
+from src.Calculation.LocalLowAndLocalHigh import holyGrail
 from src.DB_Connection.ExportCSV import exportdf
 
 ticker = "9988.hk"
@@ -30,13 +32,17 @@ print(data)
 
 # Check MACD Status
 momentumCheck = check_macd(data)
+print(momentumCheck)
 
 # Calculate STC
 data = compute_stc(data, 16, 8, 8)
 print(data)
 
 # Check STC Status
-stcCheck = check_stc(data)
+# stcCheck = check_stc(data)
+
+# Run Holy Grail
+data = holyGrail(data, 6)
 
 # export to CSV
 exportdf(data, ticker)
