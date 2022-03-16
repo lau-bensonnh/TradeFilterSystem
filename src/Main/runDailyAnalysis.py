@@ -39,7 +39,8 @@ data = compute_stc(data, 16, 8, 8)
 print(data)
 
 # Check STC Status
-# stcCheck = check_stc(data)
+stcCheck = check_stc(data)
+print(stcCheck)
 
 # Run Holy Grail
 data = holyGrail(data, 6)
